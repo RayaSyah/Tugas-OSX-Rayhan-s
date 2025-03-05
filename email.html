@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email with Confetti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Video Background */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        /* Overlay untuk menggelapkan video */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+            z-index: 0;
+        }
+        /* Container untuk teks dan tombol */
+        .content {
+            position: absolute;
+            bottom: 75px; /* Geser ke atas */
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 2;
+        }
+        /* Teks di atas tombol */
+        .message {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        /* Tombol Send Email */
+        .email-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7); /* Hitam transparan */
+            backdrop-filter: blur(20px); /* Efek blur sangat kuat */
+            border: 2px solid #fff; /* Bingkai putih */
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none; /* Menghilangkan garis bawah */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .email-button:hover {
+            background: rgba(0, 0, 0, 0.9); /* Warna lebih gelap saat hover */
+            transform: scale(1.05);
+        }
+        /* Efek percikan pita */
+        .confetti {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6f61;
+            border-radius: 50%;
+            animation: confetti-fall 2s ease-out;
+        }
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        /* Styling untuk tulisan "Do you want to go back?" dan link */
+        .go-back {
+            margin-top: 30px; /* Jarak antara tombol dan tulisan */
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .go-back a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .go-back a:hover {
+            text-decoration: underline;
+        }
+        /* Tombol play suara */
+        .sound-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+            border: 2px solid #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .sound-button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop class="video-background" id="backgroundVideo">
+        <source src="sarange.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Overlay untuk menggelapkan video -->
+    <div class="overlay"></div>
+    <!-- Container untuk teks dan tombol -->
+    <div class="content">
+        <!-- Teks di atas tombol -->
+        <div class="message">
+            Thank you for your visit, if there are any problems, you can click the button below.
+        </div>
+        <!-- Tombol Send Email -->
+        <a href="mailto:rayhanhanky@gmail.com" class="email-button" id="emailButton">Send Email</a>
+        <!-- Tulisan "Do you want to go back?" dengan link -->
+        <div class="go-back">
+            Do you want to go back? <a href="rayhanindex.html">Back to the main page</a>
+        </div>
+    </div>
+    <!-- Area untuk efek percikan pita -->
+    <div class="confetti" id="confettiContainer"></div>
+    <!-- Tombol play suara -->
+    <button class="sound-button" id="soundButton">Play Sound</button>
+
+    <script>
+        // JavaScript untuk efek percikan pita
+        const emailButton = document.getElementById('emailButton');
+        const confettiContainer = document.getElementById('confettiContainer');
+
+        emailButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Mencegah perilaku default link
+
+            // Buat efek confetti
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confettiContainer.appendChild(confetti);
+
+                // Hapus confetti setelah animasi selesai
+                setTimeout(() => {
+                    confetti.remove();
+                }, 2000);
+            }
+
+            // Setelah efek confetti selesai, arahkan ke email
+            setTimeout(() => {
+                window.location.href = 'mailto:rayhanhanky@gmail.com';
+            }, 1000); // Tunggu 1 detik sebelum mengarahkan ke email
+        });
+
+        // JavaScript untuk tombol play suara
+        const soundButton = document.getElementById('soundButton');
+        const backgroundVideo = document.getElementById('backgroundVideo');
+
+        soundButton.addEventListener('click', () => {
+            backgroundVideo.muted = false; // Mengaktifkan suara
+            soundButton.remove(); // Menghapus tombol setelah ditekan
+        });
+    </script>
+</body>
+</html>

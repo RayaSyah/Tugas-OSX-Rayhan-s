@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan David Joko</title>
+    <style>
+        /* Gaya dasar body */
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Video background */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Container utama */
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-top: 80px; /* Container lebih ke bawah */
+        }
+
+        /* Gambar di dalam container */
+        .container img {
+            width: 300px; /* Ukuran gambar lebih besar */
+            height: auto;
+            margin-right: 1.5rem;
+            border-radius: 10px;
+        }
+
+        /* Konten teks di dalam container */
+        .content {
+            text-align: left;
+        }
+
+        /* Judul di dalam container */
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem; /* Ukuran judul lebih besar */
+            margin-top: -10px; /* Judul lebih ke atas */
+        }
+
+        /* Paragraf di dalam container */
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Link kembali ke beranda */
+        a {
+            color: #87ceeb;
+            text-decoration: none;
+            font-weight: bold;
+            line-height: 5;
+            font-size: 25px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tombol suara */
+        .sound-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        .sound-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Teks besar di luar container */
+        .large-text {
+            position: absolute;
+            top: 250px; /* Posisi judul lebih dekat dengan container */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem; /* Ukuran teks lebih besar */
+            font-weight: bold;
+            color: #fff;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video background -->
+    <video id="background-video" autoplay loop muted>
+        <source src="2521.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Teks besar di luar container -->
+    <div class="large-text">Rayhan's activities</div>
+
+    <!-- Container utama -->
+    <div class="container">
+        <img src="hikam.jpg" alt="Rayhan">
+        <div class="content">
+            <h1>Final activities before graduation.</h1>
+            <p>
+                At the end of junior high school graduation, my friends and I had a holiday in Yogyakarta to celebrate our graduation
+            </p>
+            <a href="rayhanindex.html">Return to the main page</a>
+        </div>
+    </div>
+
+    <!-- Tombol suara -->
+    <button class="sound-button" id="sound-button">▶️</button>
+
+    <script>
+        // Script untuk mengontrol suara video
+        const video = document.getElementById('background-video');
+        const soundButton = document.getElementById('sound-button');
+
+        soundButton.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                soundButton.textContent = '⏸️';
+            } else {
+                video.muted = true;
+                soundButton.textContent = '▶️';
+            }
+            soundButton.style.display = 'none'; // Tombol hilang setelah diklik
+        });
+    </script>
+</body>
+</html>

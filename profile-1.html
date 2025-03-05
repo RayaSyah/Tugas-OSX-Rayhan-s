@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil David Joko</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+       background: linear-gradient(to right, #8A2BE2, #4B0082); /* Gradasi ungu */
+       padding: 2rem;
+       border-radius: 10px;
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+       max-width: 800px;
+       width: 90%;
+       position: relative;
+       z-index: 1;
+   }
+            
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            margin-top: 2rem;
+        }
+
+        .back-link p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #2575fc;
+            border-radius: 5px;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background: #1a5bbf;
+        }
+
+        /* Stiker di kanan dan kiri */
+        .sticker {
+            position: absolute;
+            width: 150px; /* Ukuran stiker diperbesar */
+            height: 150px;
+            animation: float 2s infinite ease-in-out;
+        }
+
+        .sticker.left {
+            left: 20px; /* Posisi stiker di kiri disesuaikan */
+            top: 35%;
+        }
+
+        .sticker.right {
+            right: 250px; /* Posisi stiker di kanan disesuaikan */
+            bottom: 50%;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video background -->
+    <video id="video-background" autoplay muted loop>
+        <source src="videoprofile.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Stiker di kiri -->
+    <div class="sticker left">
+        <img src="gojo.png" alt="Stiker Kiri" width="400" height="400"> <!-- Ukuran gambar disesuaikan -->
+    </div>
+
+    <!-- Stiker di kanan -->
+    <div class="sticker right">
+        <img src="tojiro.png" alt="Stiker Kanan" width="400" height="400"> <!-- Ukuran gambar disesuaikan -->
+    </div>
+
+    <!-- Konten utama -->
+<div class="container"
+    <font face="verdana"> 
+        <p align="center"> 
+<table border="0" cellpadding="8" align="center"> 
+<tr> 
+  <td colspan="2" align="center"><b><h1>PERSONAL DATA</h1></b><hr></td> 
+</tr> 
+<tr> 
+  <td align="right"><font size="2"><b>Name: </b></td> 
+  <td><font size="2">Moch. Rayhan Firdaus</td> 
+</tr> 
+  <td align="right"><font size="2"><b>Place and date of birth: </b></td> 
+  <td><font size="2">Surabaya, 23 September 2008</td> </tr> 
+  <td align="right"><font size="2"><b>Religion: </b></td> 
+  <td><font size="2">Islam</td> 
+</tr> 
+<tr> 
+  <td align="right"><font size="2"><b>Blood type: </b></td> 
+  <td><font size="2">O</b></td> 
+</tr> 
+<tr> 
+  <td align="right"><font size="2"><b>Work: </b></td> 
+  <td><font size="2">Student</td> 
+</tr> 
+<tr> 
+  <td align="right"><font size="2"><b>Hobby: </b></td> 
+  <td><font size="2">Writing, Listening to music, and gaming</td> 
+</tr> 
+</table> 
+</font> 
+        <!-- Tambahan tulisan dan tombol di bagian bawah -->
+        <div class="back-link">
+            <p>You want to come back?</p>
+            <a href="rayhanindex.html">Back to main page</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Rayhan's Website</title>
+    <style>
+        /* CSS untuk halaman index */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-image: url('imagesindex.jpg'); /* Ganti dengan path gambar Anda */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+        .container {
+            background: #808080;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            width: 90%;
+        }
+        .header-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .header-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #ddd;
+        }
+        .poem {
+            margin-top: 2rem;
+            font-style: italic;
+            color: #ddd;
+        }
+        .sections {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1.5rem;
+        }
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 18%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .section a {
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .section a:hover {
+            text-decoration: underline;
+        }
+        .decorative-elements {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .decorative-elements span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="profile.jpg" alt="Header Image" class="header-image">
+        <h1>Hi, I'm Rayhan</h1>
+        <p>
+            First of all, I would like to thank you
+            for visiting my website. On this
+            website, you can see my profile and the
+            activities I do every day. I will also 
+            share about my life that I live, with 
+            you.
+        </p>
+        <div class="poem">
+            <h2>Moments That Shape Us</h2>
+            <p>
+                Life is a journey filled with stories, 
+                lessons, and experiences that shape who 
+                we are. Each moment, whether joyful or 
+                challenging, adds to the person we 
+                become. While our paths may differ, we 
+                all seek meaning, connection, and a 
+                sense of belonging. Sharing our stories 
+                is more than just telling events; it's 
+                about finding common ground, inspiring 
+                others, and learning from one another. 
+                Every experience, whether a success or 
+                failure, holds a lesson worth sharing. 
+                As I reflect on my own journey, I hope 
+                that my story resonates with you in some
+                way. Perhaps it will offer inspiration, 
+                comfort, or simply remind you that no 
+                one walks this path alone.
+            </p>
+        </div>
+        <div class="sections">
+            <div class="section">
+                <h3>Profil</h3>
+                <a href="profile.html">View Profile</a>
+            </div>
+            <div class="section">
+                <h3>Activities</h3>
+                <a href="activities.html">View Activities</a>
+            </div>
+            <div class="section">
+                <h3>Photos</h3>
+                <a href="gallery.html">View Gallery</a>
+            </div>
+            <div class="section">
+                <h3>Poem</h3>
+                <a href="poem.html">Read Poetry</a>
+            </div>
+            <div class="section">
+                <h3>My Email</h3>
+                <a href="mailto:rayhanhanky@gmail.com">Send email</a>
+            </div>
+        </div>
+        <div class="decorative-elements">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>

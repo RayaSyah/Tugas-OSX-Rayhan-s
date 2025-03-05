@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .big-text {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 5rem;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            z-index: 3;
+            white-space: nowrap;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 400px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #2575fc;
+            padding: 5px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 0 0 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-align: left;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #2575fc;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1a5bbf;
+        }
+
+        .link {
+            margin-top: 1rem;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .link a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+
+        #unmute-button {
+            position: fixed;
+            bottom: 15px;
+            right: 0px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            z-index: 4;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="aboutyou.mp4" type="video/mp4">
+        Browser Anda tidak mendukung tag video.
+    </video>
+    <h1 class="big-text">Join our family.</h1>
+    <button id="unmute-button" onclick="unmuteVideo()">🔊 Turn on the sound</button>
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h2>Login</h2>
+        <form action="rayhanindex.html" method="POST">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter your email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="link">
+            Don't have an account? <a href="register.html">Create an account</a>
+        </div>
+    </div>
+
+    <script>
+        function unmuteVideo() {
+            const video = document.getElementById('video-background');
+            video.muted = false;
+            document.getElementById('unmute-button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
